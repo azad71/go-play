@@ -20,7 +20,7 @@ func passByReference(ptr *int) {
 	*ptr = 0
 }
 
-func main() {
+func playPointers() {
 	i := 1
 
 	fmt.Println("Initial value:", i) // print "Initial value: 1"
@@ -37,3 +37,7 @@ func main() {
 	// pointer is also printable
 	fmt.Println("I(pointer) look like this:", &i)
 }
+
+// func main() {
+// 	play()
+// }

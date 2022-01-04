@@ -15,8 +15,7 @@ func outer() func() int {
 	}
 }
 
-func main() {
-
+func playClosures() {
 	// nextVal will hold the reference for inner annonymous function
 	// after invoking outer(), it will create a variable i
 	// initial value of i is 0, as defined in function
@@ -45,6 +44,8 @@ func main() {
 	// and holds their own value
 	// that's why nextVal() still keep incrementing even after
 	// outer function is invoked in nextVal2()
-
-
 }
+
+// func main() {
+// 	play()
+// }
