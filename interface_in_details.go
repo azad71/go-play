@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"reflect"
+)
 
 type Animals interface {
 	Speak() string;
@@ -30,7 +34,7 @@ func (f Fish) Speak() string {
 	return "? ? ? ?"
 }
 
-func playInterface() {
+func playInterfaces() {
 	animals := []Animals{new(Dog), new(Cat), Bird{}, Fish{}}
 
 	for _, animal := range animals {
@@ -38,7 +42,32 @@ func playInterface() {
 	}
 }
 
-func main() {
-	playInterface()
+var input = `
+	{
+		"created_at": "Thu May 31 00:00:01 +0000 2012" 
+	}
+`
 
+type Unmarshaler interface {
+	UnmarshalJSON([]byte) error
 }
+
+func decode_json() {
+	var val map[string]interface{}
+
+	if err:= json.Unmarshal([]byte(input), &val); err != nil {
+		panic(err)
+	}
+
+	fmt.Println(val)
+
+	for k, v:= range val {
+		fmt.Println(k, reflect.TypeOf(v))
+	}
+}
+
+// func main() {
+// 	// playInterfaces()
+// 	decode_json()
+
+// }
