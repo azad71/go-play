@@ -52,6 +52,6 @@ func playEmbedding() {
 	fmt.Println("describer:", d.describe())
 }
 
-func main() {
-	playEmbedding()
-}
+// func main() {
+// 	playEmbedding()
+// }
